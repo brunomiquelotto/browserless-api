@@ -2,10 +2,9 @@ version: "3.8"
 
 services:
   puppeteer:
-    container_name: browserless-api-v2
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: ghcr.io/puppeteer/puppeteer:latest
+    volumes:
+      - .:/app
     ports:
       - 3000:3000
     networks:
