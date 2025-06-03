@@ -13,7 +13,7 @@ fastify.get("/render", async (request, reply) => {
   try {
     const browser = await launch({
       headless: "new",
-      args: ["--disable-setuid-sandbox"],
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
 
     const page = await browser.newPage();
