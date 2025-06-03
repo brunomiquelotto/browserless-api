@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   puppeteer:
+    container_name: browserless-api
     build:
       context: .
       dockerfile: ./Dockerfile
