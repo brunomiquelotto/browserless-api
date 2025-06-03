@@ -22,3 +22,7 @@ services:
       - "traefik.http.routers.browserless-api.service=browserless-api"
       - "traefik.http.routers.browserless-api.tls.certresolver=leresolver"
       - "traefik.docker.network=configs_default"
+
+networks:
+  configs_default:
+    external: true
