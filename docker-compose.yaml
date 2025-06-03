@@ -17,7 +17,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.browserless-api.rule=Host(`api.browserless.bmsoftwarelab.com`)"
       - "traefik.http.routers.browserless-api.entrypoints=websecure"
-      - "traefik.http.services.browserless-api.loadbalancer.server.port=8080"
+      - "traefik.http.services.browserless-api.loadbalancer.server.port=3000"
       - "traefik.http.routers.browserless-api.tls=true"
       - "traefik.http.routers.browserless-api.service=browserless-api"
       - "traefik.http.routers.browserless-api.tls.certresolver=leresolver"
