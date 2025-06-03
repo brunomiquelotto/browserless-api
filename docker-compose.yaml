@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  puppeteer:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=false
+    cap_add:
+      - SYS_ADMIN
+    networks:
+      - configs_default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.browserless-api.rule=Host(`api.browserless.bmsoftwarelab.com`)"
+      - "traefik.http.routers.browserless-api.entrypoints=websecure"
+      - "traefik.http.services.browserless-api.loadbalancer.server.port=8080"
+      - "traefik.http.routers.browserless-api.tls=true"
+      - "traefik.http.routers.browserless-api.service=browserless-api"
+      - "traefik.http.routers.browserless-api.tls.certresolver=leresolver"
+      - "traefik.docker.network=configs_default"
